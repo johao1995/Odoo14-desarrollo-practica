@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="wizard_report_stock_view" model="ir.ui.view">
+            <field name="name">wizard.report.stock.view</field>
+            <field name="model">wizard.report.stock</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="date_from"/>
+                                <field name="date_to"/>
+                            </group>
+                            <group>
+                                <field name="state_stock"/>
+                            </group>
+                        </group>
+
+                        <footer>
+                            <button name="btn_report_xlsx" string="XLSX" type="object" class="oe_highlight"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="wizard_report_stock_action" model="ir.actions.act_window">
+            <field name="name">Wizard Reporte Stock</field>
+            <field name="res_model">wizard.report.stock</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- <record id="" -->
+        <menuitem id="report_stock"
+                  name="Reporte"
+                  parent="stock.menu_stock_root"
+                  sequence="101"/>
+
+        <menuitem id="submenu_wizard_report_stock"
+                  name="Stock"
+                  parent="report_stock"
+                  action="wizard_report_stock_action"
+                  sequence="1"/> 
+
+    
+    </data>
+</odoo>
